@@ -9,7 +9,7 @@ namespace mars
     namespace interfaces
     {
 
-        class JointInterface
+        class JointInterface : public ConfigMapInterface
         {
         public:
             virtual ~JointInterface() {}

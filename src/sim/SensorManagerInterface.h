@@ -1,4 +1,4 @@
-#prama once
+#pragma once
 
 #include "ControlCenter.h"
 #include "../sensor_bases.h"

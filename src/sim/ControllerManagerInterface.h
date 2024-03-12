@@ -1,4 +1,4 @@
-#prama once
+#pragma once
 
 #include "../ControllerData.h"
 #include "../core_objects_exchange.h"

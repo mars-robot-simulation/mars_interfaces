@@ -1,4 +1,4 @@
-#prama once
+#pragma once
 
 #include "draw_structs.h"
 #include <vector>

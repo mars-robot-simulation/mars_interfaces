@@ -1,4 +1,4 @@
-#prama once
+#pragma once
 
 #include "PhysicsInterface.h"
 #include "PluginInterface.h"

@@ -1,5 +1,4 @@
-
-#prama once
+#pragma once
 
 namespace mars
 {

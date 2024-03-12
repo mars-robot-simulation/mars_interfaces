@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include <mars_interfaces/MARSDefs.h> // for sReal

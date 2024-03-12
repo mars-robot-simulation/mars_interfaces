@@ -2,6 +2,7 @@
 
 #include <memory>
 
+#include "../ConfigMapInterface.hpp"
 //Backward compatibility remove this include as soon as possible
 #include "../Logging.hpp"
 
@@ -110,7 +111,7 @@ namespace mars
             data_broker::DataBrokerInterface *dataBroker;
         };
 
-        class SubControlCenter
+        class SubControlCenter : public ConfigMapInterface
         {
         public:
             SubControlCenter()
@@ -143,6 +144,10 @@ namespace mars
             {
                 return frameId;
             }
+
+            virtual configmaps::ConfigMap getConfigMap() const override;
+            virtual std::vector<std::string> getEditPattern(const std::string& basePath) const override;
+            virtual void edit(const std::string& configPath, const std::string& value) override;
         private:
             std::string prefix;
             std::string frameId;

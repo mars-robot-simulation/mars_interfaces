@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../ContactData.hpp"
+#include "../ConfigMapInterface.hpp"
 #include <vector>
 
 namespace mars
@@ -12,7 +13,7 @@ namespace mars
          * Interface class for the physical layer.
          *
          */
-        class DynamicObject
+        class DynamicObject : public ConfigMapInterface
         {
         public:
             virtual ~DynamicObject() {}

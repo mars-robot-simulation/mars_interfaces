@@ -27,6 +27,7 @@ include_directories(src)
 set(HEADERS
     src/Logging.hpp
     src/cameraStruct.h
+    src/ConfigMapInterface.hpp
     src/contact_params.h
     src/ControllerData.h
     src/core_objects_exchange.h

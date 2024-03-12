@@ -2,6 +2,7 @@
 
 #include "../MARSDefs.h"
 #include "../ContactData.hpp"
+#include "../ConfigMapInterface.hpp"
 
 #include <mars_utils/Vector.h>
 #include <configmaps/ConfigMap.hpp>
@@ -26,7 +27,8 @@ namespace mars
 
         class DynamicObject;
 
-        class CollisionInterface {
+        class CollisionInterface : public ConfigMapInterface
+        {
 
         public:
             sReal ground_friction, ground_cfm, ground_erp;

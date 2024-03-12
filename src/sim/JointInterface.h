@@ -2,6 +2,7 @@
 
 #include "NodeInterface.h"
 #include "../JointData.h" // her is declared the jointStruct
+#include "../ConfigMapInterface.hpp"
 
 namespace mars
 {

@@ -28,7 +28,7 @@ namespace mars
             virtual void getForce(utils::Vector *f) const = 0;
             virtual void getTorque(utils::Vector *t) const = 0;
             virtual void addContact(const ContactData& contact) = 0;
-            virtual const std::string& getName() = 0;
+            virtual const std::string& getName() const = 0;
             virtual void addLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;
             virtual bool isLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;
             virtual std::vector<std::shared_ptr<DynamicObject>> getLinkedFrames(void) = 0;

@@ -145,6 +145,7 @@ namespace mars
                 return frameId;
             }
 
+            // -- mars::interfaces::ConfigMapInterface --
             virtual configmaps::ConfigMap getConfigMap() const override;
             virtual std::vector<std::string> getEditPattern(const std::string& basePath) const override;
             virtual void edit(const std::string& configPath, const std::string& value) override;

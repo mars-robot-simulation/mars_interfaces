@@ -51,6 +51,7 @@ set(HEADERS
 )
 
 set(SOURCES
+    src/sim/AbsolutePose.cpp
     src/sim/ControlCenter.cpp
     src/sim/LoadCenter.cpp
     src/MaterialData.cpp

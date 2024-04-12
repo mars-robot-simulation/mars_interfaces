@@ -13,6 +13,7 @@ namespace mars
       std::shared_ptr<envire::core::TreeView> ControlCenter::graphTreeView = nullptr;
       std::shared_ptr<CollisionInterface> ControlCenter::collision = nullptr;
       std::shared_ptr<MotorManagerInterface> ControlCenter::motors = nullptr;
+      std::shared_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
 
       configmaps::ConfigMap SubControlCenter::getConfigMap() const
       {
@@ -29,6 +30,7 @@ namespace mars
 
       void SubControlCenter::edit(const std::string& configPath, const std::string& value)
       {}
+
   }
 
 } // end of namespace mars

@@ -6,6 +6,8 @@
 //Backward compatibility remove this include as soon as possible
 #include "../Logging.hpp"
 
+#include "IDManager.hpp"
+
 #ifndef LOG_ERROR
 #define LOG_ERROR(...) typedef int Deprication_Error_If_you_need_LOG_XXXX_from_mars_please_include_mars_logging_Logging_hpp[-1]
 #define LOG_DEBUG(...) typedef int Deprication_Error_If_you_need_LOG_XXXX_from_mars_please_include_mars_logging_Logging_hpp[-1]
@@ -104,6 +106,8 @@ namespace mars
             static std::shared_ptr<envire::core::EnvireGraph> envireGraph;
             static std::shared_ptr<envire::core::TreeView> graphTreeView;
             static std::shared_ptr<MotorManagerInterface> motors;
+
+            static std::shared_ptr<IDManager> jointIDManager;
 
 
             // deprecated

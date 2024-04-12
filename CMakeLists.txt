@@ -46,13 +46,13 @@ set(HEADERS
     src/terrainStruct.h
     src/utils.h
     src/sim/DynamicObject.hpp
-
     src/exceptions/SceneParseException.h
 )
 
 set(SOURCES
     src/sim/AbsolutePose.cpp
     src/sim/ControlCenter.cpp
+    src/sim/IDManager.cpp
     src/sim/LoadCenter.cpp
     src/MaterialData.cpp
     src/NodeData.cpp

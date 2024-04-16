@@ -14,7 +14,9 @@ namespace mars
       std::shared_ptr<CollisionInterface> ControlCenter::collision = nullptr;
       std::shared_ptr<MotorManagerInterface> ControlCenter::motors = nullptr;
       std::shared_ptr<JointManagerInterface> ControlCenter::joints = nullptr;
-      std::shared_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
+
+      std::unique_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
+      std::unique_ptr<IDManager> ControlCenter::nodeIDManager = nullptr;
 
       configmaps::ConfigMap SubControlCenter::getConfigMap() const
       {

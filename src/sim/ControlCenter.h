@@ -107,7 +107,8 @@ namespace mars
             static std::shared_ptr<MotorManagerInterface> motors;
             static std::shared_ptr<JointManagerInterface> joints;
 
-            static std::shared_ptr<IDManager> jointIDManager;
+            static std::unique_ptr<IDManager> jointIDManager;
+            static std::unique_ptr<IDManager> nodeIDManager;
 
 
             // deprecated

@@ -7,7 +7,9 @@ namespace mars
 {
   namespace interfaces
   {
-    IDManager::IDManager() : nextID_(1) {}
+    constexpr unsigned long kMinimalID = 1;
+
+    IDManager::IDManager() : nextID_(kMinimalID) {}
 
     void IDManager::addIfUnknown(const std::string& name)
     {
@@ -23,17 +25,40 @@ namespace mars
     {
         if (isKnown(name))
         {
-            throw std::logic_error(std::string{"IDManager::add tried adding already known item \""} + name + "\"");
+            throw std::logic_error(std::string{"IDManager::add tried adding already known item with name \""} + name + "\"");
         }
 
         const utils::MutexLocker locker{&mutex_};
         idMap_.left.insert({name, nextID_++});
     }
 
+    void IDManager::removeEntry(const std::string& name)
+    {
+        if (!isKnown(name))
+        {
+            throw std::logic_error(std::string{"IDManager::removeEntry tried removing item with unknown name: "} + name);
+        }
+
+        const utils::MutexLocker locker{&mutex_};
+        idMap_.left.erase(name);
+    }
+
+    void IDManager::removeEntry(unsigned long id)
+    {
+        if (!isKnown(id))
+        {
+            throw std::logic_error(std::string{"IDManager::removeEntry tried removing item with unknown id: "} + std::to_string(id));
+        }
+
+        const utils::MutexLocker locker{&mutex_};
+        idMap_.right.erase(id);
+    }
+
     unsigned long IDManager::getID(const std::string& name)
     {
         if (!isKnown(name))
         {
+            // TODO: Add info message
             add(name);
         }
 
@@ -55,7 +80,7 @@ namespace mars
     void IDManager::clear()
     {
         const utils::MutexLocker locker{&mutex_};
-        nextID_ = 1;
+        nextID_ = kMinimalID;
         idMap_.clear();
     }
 

@@ -10,6 +10,7 @@ namespace mars
 {
   namespace interfaces
   {
+    // @IDManager manages a bijective mapping from std::string to integer IDs starting at 1
     class IDManager
     {
     public:
@@ -27,6 +28,9 @@ namespace mars
 
       void addIfUnknown(const std::string& name);
       void add(const std::string& name);
+
+      void removeEntry(const std::string& name);
+      void removeEntry(unsigned long id);
 
       unsigned long getID(const std::string& name);
       std::string getName(unsigned long id) const;

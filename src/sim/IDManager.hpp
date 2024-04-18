@@ -26,13 +26,13 @@ namespace mars
       bool isKnown(const std::string& name) const;
       bool isKnown(unsigned long id) const;
 
-      void addIfUnknown(const std::string& name);
-      void add(const std::string& name);
+      void addIfUnknown(const std::string& name, const unsigned long desiredId = 0);
+      void add(const std::string& name, const unsigned long desiredId = 0);
 
       void removeEntry(const std::string& name);
       void removeEntry(unsigned long id);
 
-      unsigned long getID(const std::string& name);
+      unsigned long getID(const std::string& name, const unsigned long desiredId = 0);
       std::string getName(unsigned long id) const;
 
       void clear();

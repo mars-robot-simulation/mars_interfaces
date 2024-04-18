@@ -6,6 +6,7 @@
 #include "sim/ControlCenter.h"
 
 #include "sim/LoadCenter.h"
+#include "sim/JointInterface.h"
 #include <mars_utils/mathUtils.h>
 
 // should add some error handling for ConfigItem::get...()
@@ -31,8 +32,70 @@ namespace mars
 {
     namespace interfaces
     {
-
         using namespace mars::utils;
+
+        JointData JointData::fromJointInterface(std::shared_ptr<JointInterface> jointInterface, const unsigned int jointId, const unsigned int nodeId1, const unsigned int nodeId2)
+        {
+            std::string jointName;
+            jointInterface->getName(&jointName);
+            JointType jointType = jointInterface->getType();
+            JointData jointData{jointName, jointType, nodeId1, nodeId2};
+
+            jointData.index = jointId;
+            std::logic_error("JointData::fromJointInterface not implemented yet");
+            // TODO: From config map?
+            // anchorPos = 0;
+            // spring_constant = 0;
+            // damping_constant = 0;
+            // lowStopAxis1 = 0;
+            // highStopAxis1 = 0;
+            // damping_const_constraint_axis1 = 0;
+            // spring_const_constraint_axis1 = 0;
+            // lowStopAxis2 = 0;
+            // highStopAxis2 = 0;
+            // damping_const_constraint_axis2 = 0;
+            // spring_const_constraint_axis2 = 0;
+            // angle1_offset = 0;
+            // angle2_offset = 0;
+            // anchor.setZero();
+            // axis1.setZero();
+            // axis1.setZero();
+            // axis2.setZero();
+            // invertAxis = false;
+            // frameID = "";
+
+            // TODO: Realize some things from JointManager::addJoint?
+            //   if(jointS->axis1.squaredNorm() < EPSILON && jointS->type != JOINT_TYPE_FIXED) {
+            //     LOG_ERROR("Cannot create joint without axis1");
+            //     return 0;
+            //   }
+
+            //   // create an interface object to the physics
+            //   newJointInterface = PhysicsMapper::newJointPhysics(control->sim->getPhysics());
+            //   // reset the anchor
+            //   //if node index is 0, the node connects to the environment.
+            //   node1 = control->nodes->getSimNode(jointS->nodeIndex1);
+            //   if (node1) i_node1 = node1->getInterface();
+            //   node2 = control->nodes->getSimNode(jointS->nodeIndex2);
+            //   if (node2) i_node2 = node2->getInterface();
+
+            //   // ### important! how to deal with different load options? ###
+            //   //if (load_option == OPEN_INITIAL)
+            //   //jointS->angle1_offset = jointS->angle2_offset = 0;
+            //   if (jointS->anchorPos == ANCHOR_NODE1) {
+            //     assert(node1);
+            //     jointS->anchor = node1->getPosition();
+            //   } else if (jointS->anchorPos == ANCHOR_NODE2) {
+            //     assert(node2);
+            //     jointS->anchor = node2->getPosition();
+            //   } else if (jointS->anchorPos == ANCHOR_CENTER) {
+            //     assert(node1);
+            //     assert(node2);
+            //     jointS->anchor = (node1->getPosition() + node2->getPosition()) / 2.;
+            //   }
+
+            return jointData;
+        }
 
         JointData::JointData( const std::string& name, JointType type,
                               unsigned long node_id1,

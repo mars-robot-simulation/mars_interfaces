@@ -13,6 +13,7 @@ namespace mars
 
         // forward declaration
         class LoadCenter;
+        class JointInterface;
 
         /**
          * JointData is a class to exchange joint information between
@@ -21,6 +22,7 @@ namespace mars
         class JointData
         {
         public:
+            static JointData fromJointInterface(std::shared_ptr<JointInterface> jointInterface, const unsigned int jointId, const unsigned int nodeId1, const unsigned int nodeId2);
             /**
              * @brief default constructor will leave the joint struct
              * initialized with 0 values

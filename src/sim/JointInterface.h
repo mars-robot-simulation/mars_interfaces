@@ -20,6 +20,7 @@ namespace mars
               const std::shared_ptr<NodeInterface> i_node2) = 0; // physic interfaces for the node
             */
             virtual void getName(std::string *name) const = 0;
+            virtual JointType getType() const = 0;
             virtual void getAnchor(utils::Vector *anchor) const = 0;
             virtual void setAnchor(const utils::Vector &anchor) = 0;
             virtual void setAxis(const utils::Vector &axis) = 0;

@@ -34,7 +34,7 @@ namespace mars
     {
         using namespace mars::utils;
 
-        JointData JointData::fromJointInterface(std::shared_ptr<JointInterface> jointInterface, const unsigned int jointId, const unsigned int nodeId1, const unsigned int nodeId2)
+        JointData JointData::fromJointInterface(std::shared_ptr<JointInterface> jointInterface, const unsigned long jointId, const unsigned long nodeId1, const unsigned long nodeId2)
         {
             std::string jointName;
             jointInterface->getName(&jointName);

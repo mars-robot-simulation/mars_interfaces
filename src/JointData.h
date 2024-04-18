@@ -22,7 +22,7 @@ namespace mars
         class JointData
         {
         public:
-            static JointData fromJointInterface(std::shared_ptr<JointInterface> jointInterface, const unsigned int jointId, const unsigned int nodeId1, const unsigned int nodeId2);
+            static JointData fromJointInterface(std::shared_ptr<JointInterface> jointInterface, const unsigned long jointId, const unsigned long nodeId1, const unsigned long nodeId2);
             /**
              * @brief default constructor will leave the joint struct
              * initialized with 0 values

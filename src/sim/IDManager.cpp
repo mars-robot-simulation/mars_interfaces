@@ -12,17 +12,17 @@ namespace mars
 
     IDManager::IDManager() : nextID_(kMinimalID) {}
 
-    void IDManager::addIfUnknown(const std::string& name, const unsigned long desiredId)
+    unsigned long IDManager::addIfUnknown(const std::string& name, const unsigned long desiredId)
     {
         if (isKnown(name))
         {
-            return;
+            return getID(name);
         }
 
-        add(name, desiredId);
+        return add(name, desiredId);
     }
 
-    void IDManager::add(const std::string& name, const unsigned long desiredId)
+    unsigned long IDManager::add(const std::string& name, const unsigned long desiredId)
     {
         if (isKnown(name))
         {
@@ -30,17 +30,13 @@ namespace mars
         }
 
         // id == 0 is reserved for invalid
-        if (desiredId == 0 || isKnown(desiredId))
-        {
-            const utils::MutexLocker locker{&mutex_};
-            idMap_.left.insert({name, nextID_++});
-        }
-        else
-        {
-            const utils::MutexLocker locker{&mutex_};
-            idMap_.left.insert({name, desiredId});
-            nextID_ = std::max({desiredId, nextID_}) + 1;
-        }
+        const bool useDesiredId = desiredId != 0 && !isKnown(desiredId);
+        unsigned long newID = useDesiredId ? desiredId : nextID_;
+        nextID_ = (useDesiredId ? std::max({desiredId, nextID_}) : nextID_) + 1;
+
+        const utils::MutexLocker locker{&mutex_};
+        idMap_.left.insert({name, newID});
+        return newID;
     }
 
     void IDManager::removeEntry(const std::string& name)
@@ -65,12 +61,11 @@ namespace mars
         idMap_.right.erase(id);
     }
 
-    unsigned long IDManager::getID(const std::string& name, const unsigned long desiredId)
+    unsigned long IDManager::getID(const std::string& name) const
     {
         if (!isKnown(name))
         {
-            // TODO: Add info message
-            add(name, desiredId);
+            throw std::logic_error(std::string{"IDManager::getID tried getting item with unknown name: "} + name);
         }
 
         const utils::MutexLocker locker{&mutex_};

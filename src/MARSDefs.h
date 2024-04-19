@@ -17,6 +17,8 @@
 #endif
 
 #define INVALID_ID    0
+#define SIM_CENTER_FRAME_NAME "world"
+
 
 namespace mars
 {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core_objects_exchange.h"
+#include "ConfigMapInterface.hpp"
 
 #include <configmaps/ConfigData.h>
 #include <mars_utils/Quaternion.h>
@@ -28,7 +29,7 @@ namespace mars
             unsigned long updateRate;
         }; // end of class BaseConfig
 
-        class BaseSensor
+        class BaseSensor : public ConfigMapInterface
         {
         public:
             BaseSensor()
@@ -89,6 +90,17 @@ namespace mars
             {
                 return configmaps::ConfigMap();
             }
+
+            virtual configmaps::ConfigMap getConfigMap() const 
+            {
+                configmaps::ConfigMap result;
+                result["id"] = getID();
+                result["name"] = getName();
+                result["update rate"] = updateRate;
+                return result;
+            }
+            virtual std::vector<std::string> getEditPattern(const std::string& basePath) const {return std::vector<std::string>{""};}
+            virtual void edit(const std::string& configPath, const std::string& value) {};
 
             //Should be proteted due to compability of old code currently direct accessable
             unsigned long id;

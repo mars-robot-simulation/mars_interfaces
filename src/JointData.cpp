@@ -42,6 +42,8 @@ namespace mars
             JointData jointData{jointName, jointType, nodeId1, nodeId2};
 
             jointData.index = jointId;
+            auto configMap = jointInterface->getConfigMap();
+            jointData.fromConfigMap(&configMap, "");
             std::logic_error("JointData::fromJointInterface not implemented yet");
             // TODO: From config map?
             // anchorPos = 0;

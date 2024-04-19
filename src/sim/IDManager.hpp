@@ -35,6 +35,7 @@ namespace mars
       unsigned long getID(const std::string& name) const;
       std::string getName(unsigned long id) const;
 
+      std::vector<unsigned long> getAllIDs() const;
       void clear();
       size_t size() const;
 

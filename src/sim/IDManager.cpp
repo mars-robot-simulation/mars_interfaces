@@ -83,6 +83,17 @@ namespace mars
         return idMap_.right.at(id);
     }
 
+    std::vector<unsigned long> IDManager::getAllIDs() const
+    {
+        std::vector<unsigned long> ids;
+        ids.reserve(size());
+        for (const auto& pairs : idMap_.left)
+        {
+            ids.push_back(pairs.second);
+        }
+        return ids;
+    }
+
     void IDManager::clear()
     {
         const utils::MutexLocker locker{&mutex_};

@@ -62,7 +62,7 @@ namespace mars
             virtual void setHighStop2(sReal lowStop) = 0;
             virtual void setCFM(sReal cfm) = 0;
             virtual void setOfflinePosition(sReal value) = 0;
-            virtual void getDataBrokerNames(std::string* groupName, std::string* dataName) = 0;
+            virtual void getDataBrokerNames(std::string& groupName, std::string& dataName) = 0;
 
         };
 

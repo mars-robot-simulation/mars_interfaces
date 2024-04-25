@@ -16,7 +16,7 @@ namespace mars
       std::shared_ptr<JointManagerInterface> ControlCenter::joints = nullptr;
 
       std::unique_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
-      std::unique_ptr<IDManager> ControlCenter::nodeIDManager = nullptr;
+      std::unique_ptr<IDManager> ControlCenter::linkIDManager = nullptr;
 
       configmaps::ConfigMap SubControlCenter::getConfigMap() const
       {

@@ -494,7 +494,7 @@ namespace mars
              * \param id The id of the node to get the core node object.
              * \returns Returns a pointer to the corresponding node object.
              */
-            virtual std::shared_ptr<mars::sim::SimNode> getSimNode(NodeId id) = 0;
+            virtual std::shared_ptr<mars::core::SimNode> getSimNode(NodeId id) = 0;
             //      virtual const sim::SimNode *getSimNode(NodeId id) const = 0;
 
             /**

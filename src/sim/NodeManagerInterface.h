@@ -10,7 +10,7 @@
 namespace mars
 {
 
-    namespace sim
+    namespace core
     {
         class SimNode;
     };

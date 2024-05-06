@@ -37,6 +37,7 @@ namespace mars
 
         //access these strings only via toString(const NodeType&) and typeFromString(const std::string&).
         //synchronize this list with the enum NodeType in MARSDefs.h
+        // TODO: Change to map NodeType -> type name
         static const char* sTypeNames[NUMBER_OF_NODE_TYPES] =
         {
             "undefined",

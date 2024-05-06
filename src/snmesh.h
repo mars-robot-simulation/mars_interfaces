@@ -12,13 +12,18 @@ namespace mars
         //mesh structure
         struct snmesh
         {
-            void setZero()
+            void setZero(bool free_memory = false)
             {
-                vertices = 0;
-                normals = 0;
-                color= 0;
-                tCoords = 0;
-                indices = 0;
+                if (free_memory)
+                {
+                    freeMemory();
+                }
+
+                vertices = nullptr;
+                normals = nullptr;
+                color = nullptr;
+                tCoords = nullptr;
+                indices = nullptr;
                 indexcount = 0;
                 vertexcount = 0;
             }
@@ -26,6 +31,30 @@ namespace mars
             snmesh()
             {
                 setZero();
+            }
+
+            void freeMemory()
+            {
+                if (vertices)
+                {
+                    delete vertices;
+                }
+                if (normals)
+                {
+                    delete normals;
+                }
+                if (color)
+                {
+                    delete color;
+                }
+                if (tCoords)
+                {
+                    delete tCoords;
+                }
+                if (indices)
+                {
+                    delete indices;
+                }
             }
 
             mydVector3 *vertices;

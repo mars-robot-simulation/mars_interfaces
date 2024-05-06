@@ -71,21 +71,7 @@ namespace mars
         class ControlCenter
         {
         public:
-            ControlCenter()
-            {
-                sim = NULL;
-                cfg = NULL;
-                nodes  = NULL;
-                joints = NULL;
-                motors = NULL;
-                controllers = NULL;
-                sensors = NULL;
-                graphics = NULL;
-                dataBroker = NULL;
-                loadCenter = NULL;
-                collision = NULL;
-                //physics = NULL;
-            }
+            ControlCenter();
 
             cfg_manager::CFGManagerInterface *cfg;
             NodeManagerInterface *nodes;
@@ -98,8 +84,6 @@ namespace mars
             LoadCenter *loadCenter;
             std::map<std::pair<std::string, std::string>, CollisionHandler*> collisionHandlers;
             static std::shared_ptr<CollisionInterface> collision;
-            // TODO: do we need physic in the main simulation control center?
-            //std::shared_ptr<PhysicsInterface> physics;
 
             static data_broker::DataBrokerInterface *theDataBroker;
             static std::shared_ptr<envire::core::EnvireGraph> envireGraph;

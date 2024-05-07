@@ -8,7 +8,7 @@ namespace mars
 
     namespace interfaces
     {
-        data_broker::DataBrokerInterface *ControlCenter::theDataBroker = NULL;
+        data_broker::DataBrokerInterface *ControlCenter::theDataBroker = nullptr;
         std::shared_ptr<envire::core::EnvireGraph> ControlCenter::envireGraph = nullptr;
         std::shared_ptr<envire::core::TreeView> ControlCenter::graphTreeView = nullptr;
         std::shared_ptr<CollisionInterface> ControlCenter::collision = nullptr;
@@ -30,6 +30,13 @@ namespace mars
             dataBroker{nullptr}
         {}
 
+        ControlCenter::~ControlCenter()
+        {
+            // TODO: Figure out what is left to be deleted. 
+            //  E.g. cfg should be freed by releasing the library in the destructor of Simulator
+            //  and ControlCenter will be destructed AFTER sim WAS destructed.
+        }
+
         configmaps::ConfigMap SubControlCenter::getConfigMap() const
         {
             configmaps::ConfigMap result;
@@ -44,6 +51,12 @@ namespace mars
         }
 
         void SubControlCenter::edit(const std::string& configPath, const std::string& value)
+        {}
+
+        SubControlCenter::SubControlCenter() : 
+            physics{nullptr},
+            collision{nullptr},
+            prefix{""}
         {}
     } // end of namespace interfaces
 } // end of namespace mars

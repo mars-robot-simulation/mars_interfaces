@@ -31,11 +31,6 @@ namespace envire
 
 namespace mars
 {
-    namespace main_gui
-    {
-        class GuiInterface;
-    }
-
     namespace cfg_manager
     {
         class CFGManagerInterface;
@@ -48,7 +43,6 @@ namespace mars
 
     namespace interfaces
     {
-        class ControlCenter;
         class NodeManagerInterface;
         class JointManagerInterface;
         class MotorManagerInterface;
@@ -64,14 +58,17 @@ namespace mars
 
         class PhysicsInterfaceItem;
 
-        /**
-         * The declaration of the ControlCenter.
-         *
-         */
+ 
         class ControlCenter
         {
         public:
             ControlCenter();
+            ~ControlCenter();
+
+            ControlCenter(const ControlCenter&) = delete;
+            ControlCenter operator=(const ControlCenter&) = delete;
+            ControlCenter(ControlCenter&&) = delete;
+            ControlCenter operator=(ControlCenter&&) = delete;
 
             cfg_manager::CFGManagerInterface *cfg;
             NodeManagerInterface *nodes;
@@ -94,7 +91,6 @@ namespace mars
             static std::unique_ptr<IDManager> jointIDManager;
             static std::unique_ptr<IDManager> linkIDManager;
 
-
             // deprecated
             // use instead ControlCenter::theDataBroker
             data_broker::DataBrokerInterface *dataBroker;
@@ -103,12 +99,13 @@ namespace mars
         class SubControlCenter : public ConfigMapInterface
         {
         public:
-            SubControlCenter()
-            {
-                physics = nullptr;
-                collision = nullptr;
-                prefix = "";
-            }
+            SubControlCenter();
+            ~SubControlCenter() = default;
+
+            SubControlCenter(const SubControlCenter&) = delete;
+            SubControlCenter operator=(const SubControlCenter&) = delete;
+            SubControlCenter(SubControlCenter&&) = delete;
+            SubControlCenter operator=(SubControlCenter&&) = delete;
 
             std::shared_ptr<PhysicsInterface> physics;
             std::shared_ptr<CollisionInterface> collision;
@@ -116,7 +113,6 @@ namespace mars
             void setPrefix(const std::string &prefix)
             {
                 this->prefix = prefix;
-                //frameId = "SubWorld::" + prefix;
             }
 
             void setFrameId(const std::string &frameId)

@@ -73,7 +73,6 @@ namespace mars
             cfg_manager::CFGManagerInterface *cfg;
             NodeManagerInterface *nodes;
             ControllerManagerInterface *controllers;
-            SensorManagerInterface *sensors;
             SimulatorInterface *sim;
             GraphicsManagerInterface *graphics;
             EntityManagerInterface *entities;
@@ -87,6 +86,7 @@ namespace mars
             static std::shared_ptr<envire::core::TreeView> graphTreeView;
             static std::shared_ptr<MotorManagerInterface> motors;
             static std::shared_ptr<JointManagerInterface> joints;
+            static std::shared_ptr<SensorManagerInterface> sensors;
 
             static std::unique_ptr<IDManager> motorIDManager;
             static std::unique_ptr<IDManager> jointIDManager;

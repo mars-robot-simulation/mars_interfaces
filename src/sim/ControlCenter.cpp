@@ -18,6 +18,7 @@ namespace mars
         std::unique_ptr<IDManager> ControlCenter::motorIDManager = nullptr;
         std::unique_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
         std::unique_ptr<IDManager> ControlCenter::linkIDManager = nullptr;
+        std::unique_ptr<IDManager> ControlCenter::sensorIDManager = nullptr;
 
         ControlCenter::ControlCenter() : 
             cfg{nullptr},

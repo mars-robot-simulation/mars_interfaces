@@ -91,6 +91,7 @@ namespace mars
             static std::unique_ptr<IDManager> motorIDManager;
             static std::unique_ptr<IDManager> jointIDManager;
             static std::unique_ptr<IDManager> linkIDManager;
+            static std::unique_ptr<IDManager> sensorIDManager;
 
             // deprecated
             // use instead ControlCenter::theDataBroker

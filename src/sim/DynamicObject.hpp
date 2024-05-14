@@ -4,6 +4,7 @@
 #include "../ConfigMapInterface.hpp"
 #include <vector>
 
+
 namespace mars
 {
     namespace interfaces
@@ -16,12 +17,13 @@ namespace mars
         class DynamicObject : public ConfigMapInterface
         {
         public:
-            // TODO: Add set- and getPose.
             virtual ~DynamicObject() {}
             virtual void getPosition(utils::Vector *pos) const = 0;
             virtual void setPosition(const utils::Vector &pos) = 0;
             virtual void getRotation(utils::Quaternion *q) const = 0;
             virtual void setRotation(const utils::Quaternion &q) = 0;
+            virtual void getPose(utils::Vector* position, utils::Quaternion* rotation) const = 0;
+            virtual void setPose(const utils::Vector& position, const utils::Quaternion& rotation, const bool reset_velocities = false) = 0;
             virtual void getLinearVelocity(utils::Vector *vel) const = 0;
             virtual void setLinearVelocity(const utils::Vector &vel) = 0;
             virtual void getAngularVelocity(utils::Vector *vel) const = 0;

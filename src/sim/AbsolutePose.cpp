@@ -33,6 +33,14 @@ namespace mars
             configmaps::ConfigMap result;
             result["position"] = mars::utils::vectorToConfigItem(position_);
             result["rotation"] = mars::utils::quaternionToConfigItem(rotation_, true);
+            if (initialPosition_.has_value())
+            {
+                result["initial position"] = mars::utils::vectorToConfigItem(*initialPosition_);
+            }
+            if (initialRotation_.has_value())
+            {
+                result["initial rotation"] = mars::utils::quaternionToConfigItem(*initialRotation_, true);
+            }
 
             return result;
         }

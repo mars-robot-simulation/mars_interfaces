@@ -4,7 +4,7 @@
 
 #include <string>
 #include <boost/optional.hpp>
-
+#include <base/TransformWithCovariance.hpp>
 #include <mars_utils/mathUtils.h>
 
 
@@ -15,14 +15,18 @@ namespace mars
         class AbsolutePose : public ConfigMapInterface
         {
         public:
+            AbsolutePose();
+
             void setPosition(const utils::Vector& position);
             void setRotation(const utils::Quaternion& rotation);
             void setFrameId(const std::string& frameId) { frameId_ = frameId; }
             const utils::Vector& getPosition() const { return position_; }
             const utils::Quaternion& getRotation() const { return rotation_; }
             const std::string& getFrameId() const { return frameId_; }
+            bool isInInitialPose(const double eps = 1e-7) const;
 
-            void resetPose();
+            // @return: Transformation from current pose to initial pose
+            base::TransformWithCovariance resetPose();
 
             // -- mars::interfaces::ConfigMapInterface --
             virtual configmaps::ConfigMap getConfigMap() const override;

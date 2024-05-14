@@ -2,8 +2,12 @@
 
 namespace mars
 {
-  namespace interfaces
-  {
+    namespace interfaces
+    {
+        // This currently intentionally does not set the initial pose as usually the initial pose is unknown when AbsolutePose is constructed.
+        AbsolutePose::AbsolutePose() : position_{.0, .0, .0}, rotation_{1.0, .0, .0, .0}
+        {}
+
         void AbsolutePose::setPosition(const utils::Vector& position)
         {
             position_ = position;
@@ -22,10 +26,26 @@ namespace mars
             }
         }
 
-        void AbsolutePose::resetPose()
+        bool AbsolutePose::isInInitialPose(const double eps) const
         {
+            assert(initialPosition_.has_value());
+            assert(initialRotation_.has_value());
+
+            const bool positionIsInitial = position_.isApprox(*initialPosition_, eps);
+            const bool rotationIsInitial = rotation_.coeffs().isApprox(initialRotation_->coeffs(), eps);
+            return positionIsInitial && rotationIsInitial;
+        }
+
+        base::TransformWithCovariance AbsolutePose::resetPose()
+        {
+            assert(initialPosition_.has_value());
+            assert(initialRotation_.has_value());
+
+            const auto currentPose = base::TransformWithCovariance{position_, rotation_};
+            const auto initialPose = base::TransformWithCovariance{*initialPosition_, *initialRotation_};
             position_ = *initialPosition_;
             rotation_ = *initialRotation_;
+            return currentPose.inverse() * initialPose;
         }
 
         configmaps::ConfigMap AbsolutePose::getConfigMap() const

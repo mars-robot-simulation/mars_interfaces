@@ -14,6 +14,7 @@ pkg_check_modules(PKGCONFIG REQUIRED
         configmaps
         data_broker
         mars_utils
+        base-types
 )
 set(LIB_DEPS "base-lib configmaps data_broker mars_utils")
 

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../MARSDefs.h"
+#include "../ConfigMapInterface.hpp"
 
 #include <mars_utils/Vector.h>
 #include <configmaps/ConfigMap.hpp>
@@ -31,7 +32,7 @@ namespace mars
             PHYSICS_UNKNOWN,
         };
 
-        class PhysicsInterface
+        class PhysicsInterface : public ConfigMapInterface
         {
 
         public:

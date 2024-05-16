@@ -3,6 +3,9 @@
 //#define ROCK
 #include "ControlCenter.h"
 
+#include "CollisionInterface.hpp"
+#include "PhysicsInterface.hpp"
+
 namespace mars
 {
 
@@ -43,6 +46,8 @@ namespace mars
         {
             configmaps::ConfigMap result;
             result["prefix"] = getPrefix();
+            result["Collision Interface"] = collision->getConfigMap();
+            result["Physics Interface"] = physics->getConfigMap();
 
             return result;
         }

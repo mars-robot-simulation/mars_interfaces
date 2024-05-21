@@ -18,7 +18,7 @@ namespace mars
         std::shared_ptr<MotorManagerInterface> ControlCenter::motors = nullptr;
         std::shared_ptr<JointManagerInterface> ControlCenter::joints = nullptr;
         std::shared_ptr<SensorManagerInterface> ControlCenter::sensors = nullptr;
-        std::shared_ptr<NodeManagerInterface> ControlCenter::nodes = nullptr;
+        NodeManagerInterface* ControlCenter::nodes = nullptr;
 
         std::unique_ptr<IDManager> ControlCenter::motorIDManager = nullptr;
         std::unique_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
@@ -40,6 +40,11 @@ namespace mars
             // TODO: Figure out what is left to be deleted. 
             //  E.g. cfg should be freed by releasing the library in the destructor of Simulator
             //  and ControlCenter will be destructed AFTER sim WAS destructed.
+            if (nodes)
+            {
+                delete nodes;
+                nodes = nullptr;
+            }
         }
 
         configmaps::ConfigMap SubControlCenter::getConfigMap() const

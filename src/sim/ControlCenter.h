@@ -71,7 +71,6 @@ namespace mars
             ControlCenter operator=(ControlCenter&&) = delete;
 
             cfg_manager::CFGManagerInterface *cfg;
-            NodeManagerInterface *nodes;
             ControllerManagerInterface *controllers;
             SimulatorInterface *sim;
             GraphicsManagerInterface *graphics;
@@ -87,6 +86,7 @@ namespace mars
             static std::shared_ptr<MotorManagerInterface> motors;
             static std::shared_ptr<JointManagerInterface> joints;
             static std::shared_ptr<SensorManagerInterface> sensors;
+            static std::shared_ptr<NodeManagerInterface> nodes;
 
             static std::unique_ptr<IDManager> motorIDManager;
             static std::unique_ptr<IDManager> jointIDManager;

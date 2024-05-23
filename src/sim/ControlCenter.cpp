@@ -25,13 +25,14 @@ namespace mars
         std::unique_ptr<IDManager> ControlCenter::linkIDManager = nullptr;
         std::unique_ptr<IDManager> ControlCenter::sensorIDManager = nullptr;
 
-        ControlCenter::ControlCenter() : 
+        LoadCenter* ControlCenter::loadCenter = nullptr;
+
+      ControlCenter::ControlCenter() :
             cfg{nullptr},
             controllers{nullptr},
             sim{nullptr},
             graphics{nullptr},
             entities{nullptr},
-            loadCenter{nullptr},
             dataBroker{nullptr}
         {}
 

@@ -76,7 +76,7 @@ namespace mars
             GraphicsManagerInterface *graphics;
             EntityManagerInterface *entities;
 
-            LoadCenter *loadCenter;
+            static LoadCenter *loadCenter;
             std::map<std::pair<std::string, std::string>, CollisionHandler*> collisionHandlers;
             static std::shared_ptr<CollisionInterface> collision;
 

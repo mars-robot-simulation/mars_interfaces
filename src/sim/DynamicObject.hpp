@@ -30,6 +30,8 @@ namespace mars
             virtual void setAngularVelocity(const utils::Vector &vel) = 0;
             virtual void getForce(utils::Vector *f) const = 0;
             virtual void getTorque(utils::Vector *t) const = 0;
+            virtual void addForce(const utils::Vector &f, const utils::Vector &p) = 0;
+            virtual void addForce(const utils::Vector &f) = 0;
             virtual void addContact(const ContactData& contact) = 0;
             virtual const std::string& getName() const = 0;
             virtual void addLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;

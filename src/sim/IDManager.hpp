@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
 #include <boost/bimap.hpp>
 #include <mars_utils/Mutex.h>

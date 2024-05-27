@@ -33,6 +33,9 @@ namespace mars
             virtual void addForce(const utils::Vector &f, const utils::Vector &p) = 0;
             virtual void addForce(const utils::Vector &f) = 0;
             virtual void addContact(const ContactData& contact) = 0;
+            virtual const utils::Vector rotateAtPoint(  const utils::Vector &rotation_point,
+                                                        const utils::Quaternion &rotation,
+                                                        bool move_group) = 0;
             virtual const std::string& getName() const = 0;
             virtual void addLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;
             virtual bool isLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;

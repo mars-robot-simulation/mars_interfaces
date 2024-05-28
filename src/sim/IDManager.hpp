@@ -16,7 +16,7 @@ namespace mars
     {
     public:
       IDManager();
-      ~IDManager() = default;
+      virtual ~IDManager() = default;
 
       // -- rule of five --
       IDManager(const IDManager&) = delete;

@@ -1,6 +1,7 @@
 #include "IDManager.hpp"
 
 #include <mars_utils/MutexLocker.h>
+#include <mars_interfaces/MARSDefs.h>
 
 
 namespace mars
@@ -65,7 +66,7 @@ namespace mars
     {
         if (!isKnown(name))
         {
-            throw std::logic_error(std::string{"IDManager::getID tried getting item with unknown name: "} + name);
+            return INVALID_ID;
         }
 
         const utils::MutexLocker locker{&mutex_};

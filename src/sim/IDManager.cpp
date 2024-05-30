@@ -1,7 +1,7 @@
 #include "IDManager.hpp"
 
 #include <mars_utils/MutexLocker.h>
-#include <mars_interfaces/MARSDefs.h>
+#include "../MARSDefs.h"
 
 
 namespace mars

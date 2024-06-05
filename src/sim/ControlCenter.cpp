@@ -20,10 +20,10 @@ namespace mars
         std::shared_ptr<SensorManagerInterface> ControlCenter::sensors = nullptr;
         NodeManagerInterface* ControlCenter::nodes = nullptr;
 
-        std::unique_ptr<IDManager> ControlCenter::motorIDManager = nullptr;
-        std::unique_ptr<IDManager> ControlCenter::jointIDManager = nullptr;
-        std::unique_ptr<IDManager> ControlCenter::linkIDManager = nullptr;
-        std::unique_ptr<IDManager> ControlCenter::sensorIDManager = nullptr;
+        std::shared_ptr<IDManager> ControlCenter::motorIDManager_ = nullptr;
+        std::shared_ptr<IDManager> ControlCenter::jointIDManager_ = nullptr;
+        std::shared_ptr<IDManager> ControlCenter::linkIDManager_ = nullptr;
+        std::shared_ptr<IDManager> ControlCenter::sensorIDManager_ = nullptr;
 
         LoadCenter* ControlCenter::loadCenter = nullptr;
 

@@ -82,16 +82,23 @@ namespace mars
 
             static data_broker::DataBrokerInterface *theDataBroker;
             static std::shared_ptr<envire::core::EnvireGraph> envireGraph;
+            std::shared_ptr<envire::core::EnvireGraph> envireGraph_;
             static std::shared_ptr<envire::core::TreeView> graphTreeView;
+            std::shared_ptr<envire::core::TreeView> graphTreeView_;
             static std::shared_ptr<MotorManagerInterface> motors;
             static std::shared_ptr<JointManagerInterface> joints;
             static std::shared_ptr<SensorManagerInterface> sensors;
             static NodeManagerInterface* nodes;
 
-            static std::unique_ptr<IDManager> motorIDManager;
-            static std::unique_ptr<IDManager> jointIDManager;
-            static std::unique_ptr<IDManager> linkIDManager;
-            static std::unique_ptr<IDManager> sensorIDManager;
+            std::shared_ptr<IDManager> motorIDManager;
+            std::shared_ptr<IDManager> jointIDManager;
+            std::shared_ptr<IDManager> linkIDManager;
+            std::shared_ptr<IDManager> sensorIDManager;
+
+            static std::shared_ptr<IDManager> motorIDManager_;
+            static std::shared_ptr<IDManager> jointIDManager_;
+            static std::shared_ptr<IDManager> linkIDManager_;
+            static std::shared_ptr<IDManager> sensorIDManager_;
 
             // deprecated
             // use instead ControlCenter::theDataBroker

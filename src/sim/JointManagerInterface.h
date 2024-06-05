@@ -192,6 +192,8 @@ namespace mars
                                       interfaces::sReal highStop2) = 0;
             virtual void edit(interfaces::JointId id, const std::string &key,
                               const std::string &value) = 0;
+            virtual std::weak_ptr<interfaces::JointInterface> getJointInterface(unsigned long jointId) = 0;
+            virtual std::weak_ptr<interfaces::JointInterface> getJointInterface(const std::string& jointName) = 0;
         };
 
     } // end of namespace interfaces

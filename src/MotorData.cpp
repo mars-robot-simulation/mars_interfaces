@@ -98,6 +98,9 @@ namespace mars
                        tmpmotortype=="direct_effort")
             {
                 type = MOTOR_TYPE_DIRECT_EFFORT;
+            } else if (tmpmotortype=="8" || tmpmotortype=="ff_torque")
+            {
+                type = MOTOR_TYPE_FF_EFFORT;
             }
 
             GET_VALUE("p", p, Double);

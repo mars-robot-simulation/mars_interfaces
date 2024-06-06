@@ -79,7 +79,8 @@ namespace mars
             MOTOR_TYPE_PID, // deprecated
             MOTOR_TYPE_DC, // deprecated
             MOTOR_TYPE_PID_FORCE, // deprecated
-            MOTOR_TYPE_DIRECT_EFFORT
+            MOTOR_TYPE_DIRECT_EFFORT,
+            MOTOR_TYPE_FF_EFFORT
         };
 
         //Definition of Sensor Types

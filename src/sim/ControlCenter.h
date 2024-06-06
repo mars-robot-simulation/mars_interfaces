@@ -118,6 +118,7 @@ namespace mars
 
             std::shared_ptr<PhysicsInterface> physics;
             std::shared_ptr<CollisionInterface> collision;
+            ControlCenter *control;
 
             void setPrefix(const std::string &prefix)
             {

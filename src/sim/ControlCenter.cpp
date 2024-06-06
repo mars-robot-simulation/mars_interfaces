@@ -69,6 +69,7 @@ namespace mars
         SubControlCenter::SubControlCenter() : 
             physics{nullptr},
             collision{nullptr},
+            control{nullptr},
             prefix{""}
         {}
     } // end of namespace interfaces

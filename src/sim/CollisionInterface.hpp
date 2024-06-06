@@ -52,10 +52,16 @@ namespace mars
             virtual void showDebugObjects(bool show) = 0;
         };
 
-        class CollisionInterfaceItem {
+        class CollisionInterfaceItem
+        {
         public:
             std::shared_ptr<CollisionInterface> collisionInterface;
             std::string pluginName;
+
+            bool operator==(const CollisionInterfaceItem& rhs) const
+            {
+                return collisionInterface.get() == rhs.collisionInterface.get();
+            }
         };
 
     } // end of namespace interfaces

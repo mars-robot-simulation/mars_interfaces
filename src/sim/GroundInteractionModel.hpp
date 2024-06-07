@@ -8,6 +8,7 @@ namespace mars
     {
         class GroundInteractionModel
         {
+        public:
             virtual void update(interfaces::ContactData& contactData) const = 0;
         };
     }

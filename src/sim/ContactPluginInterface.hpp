@@ -10,6 +10,11 @@
 
 namespace mars
 {
+    namespace core
+    {
+        class CollisionManager;
+    }
+
     namespace interfaces
     {
         class ContactPluginInterface : public ConfigMapInterface
@@ -18,6 +23,8 @@ namespace mars
             ContactPluginInterface() = default;
             virtual ~ContactPluginInterface() = default;
 
+            const std::string& getFrameID() const { return frameID_; }
+
             // @priority: If multiple contact plugins affect the same contact, only the one with the highest priority is applied.
             // TODO: Handling the priority is not implemented in mars::core::CollisionManager yet (2024-06-06).
             virtual uint32_t priority() const { return 0; }
@@ -25,6 +32,13 @@ namespace mars
             virtual bool affects(const ContactData& contactData) const = 0;
             // @updateContact: Affect the given ContactData.
             virtual void updateContact(ContactData& contactData) const = 0;
+
+
+        protected:
+            friend class core::CollisionManager;
+            void setFrameID(const std::string& frameID) { frameID_ = frameID; }
+        private:
+            std::string frameID_;
         };
 
         class ContactPluginInterfaceItem

@@ -7,6 +7,15 @@ namespace mars
 {
     namespace interfaces
     {
+        enum ContactMaterial
+        {
+            kUnknown = 0,
+            kSand = 10,
+            kGravel = 20,
+            kExtrusive = 30,
+            kConcrete = 40,
+            kWood = 50
+        };
 
         struct contact_params
         {

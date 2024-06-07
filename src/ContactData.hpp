@@ -25,7 +25,6 @@ namespace mars
          */
         struct ContactData
         {
-
             /**
              * @brief default constructor that takes name, position and orientation arguments
              */
@@ -65,7 +64,10 @@ namespace mars
              */
             contact_params c_params;
 
-            std::shared_ptr<DynamicObject> body1, body2;
+            std::shared_ptr<DynamicObject> body1;
+            std::shared_ptr<DynamicObject> body2;
+            ContactMaterial contactMaterialObject1;
+            ContactMaterial contactMaterialObject2;
 
         }; // end of struct ContactData
 

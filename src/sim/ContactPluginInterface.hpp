@@ -31,7 +31,7 @@ namespace mars
             // @affects: Returns true, iff the contact plugin affects the given ContactData.
             virtual bool affects(const ContactData& contactData) const = 0;
             // @updateContact: Affect the given ContactData.
-            virtual void updateContact(ContactData& contactData) const = 0;
+            virtual void updateContact(ContactData& contactData) = 0;
 
 
         protected:

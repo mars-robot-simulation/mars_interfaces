@@ -21,27 +21,29 @@ namespace mars
         {
             void setZero()
             {
-                max_num_contacts = 4;
-                erp = 0.1;
-                cfm = 0.00000001;
-                friction1 = 0.8;
-                friction2 = 0.8;
-                friction_direction1 = 0;
-                motion1 = motion2 = 0;
-                fds1 = fds2 = 0;
-                bounce = bounce_vel = 0;
-                approx_pyramid = 1;
-                coll_bitmask = 65535;
-                depth_correction = 0.0;
-                rolling_friction = 0.0;
-                rolling_friction2 = 0.0;
-                spinning_friction = 0.0;
+                *this = contact_params{};
             }
 
-            contact_params()
-            {
-                setZero();
-            }
+            contact_params() :
+                max_num_contacts{4},
+                erp{1e-1},
+                cfm{1e-8},
+                friction1{0.8},
+                friction2{0.8},
+                friction_direction1{nullptr},
+                motion1{0},
+                motion2{0},
+                fds1{0},
+                fds2{0},
+                bounce{0},
+                bounce_vel{0},
+                approx_pyramid{true},
+                coll_bitmask{65535}, // TODO: convert from bit representation
+                depth_correction{0.0},
+                rolling_friction{0.0},
+                rolling_friction2{0.0},
+                spinning_friction{0.0}
+            {}
 
             int max_num_contacts;
             sReal erp, cfm;
@@ -56,5 +58,7 @@ namespace mars
             sReal rolling_friction, rolling_friction2, spinning_friction;
         }; // end of struct contact_params
 
+        // TODO: Change to constexpr with >=C++14
+        const contact_params kDefaultContactParameters{};
     } // end of namespace interfaces
 } // end of namespace mars

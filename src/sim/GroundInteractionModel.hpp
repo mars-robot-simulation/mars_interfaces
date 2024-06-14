@@ -10,6 +10,7 @@ namespace mars
         {
         public:
             virtual void update(interfaces::ContactData& contactData) = 0;
+            virtual void prePhysicsUpdate() = 0;
         };
     }
 }

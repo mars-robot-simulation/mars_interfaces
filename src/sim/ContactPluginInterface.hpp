@@ -33,7 +33,6 @@ namespace mars
             // @updateContact: Affect the given ContactData.
             virtual void updateContact(ContactData& contactData) = 0;
 
-
         protected:
             friend class core::CollisionManager;
             void setFrameID(const std::string& frameID) { frameID_ = frameID; }
@@ -44,13 +43,19 @@ namespace mars
         class ContactPluginInterfaceItem
         {
         public:
+            // defaults
+            ContactPluginInterfaceItem() = default;
+            ~ContactPluginInterfaceItem() = default;
+            ContactPluginInterfaceItem(const ContactPluginInterfaceItem&) = default;
+            // Copy Constructor required from envire for creation of SpatioTemporal through ItemPtr creation.
+
+            // deleted
+            ContactPluginInterfaceItem operator=(const ContactPluginInterfaceItem&) = delete;
+            ContactPluginInterfaceItem(ContactPluginInterfaceItem&&) = delete;
+            ContactPluginInterfaceItem operator=(ContactPluginInterfaceItem&&) = delete;
+
             std::shared_ptr<ContactPluginInterface> contactPluginInterface;
             std::string pluginName;
-
-            bool operator==(const ContactPluginInterfaceItem& rhs) const
-            {
-                return contactPluginInterface.get() == rhs.contactPluginInterface.get();
-            }
         };
     } // end namespace interfaces
 } // end namespace mars

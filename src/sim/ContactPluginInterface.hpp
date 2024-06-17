@@ -32,6 +32,8 @@ namespace mars
             virtual bool affects(const ContactData& contactData) const = 0;
             // @updateContact: Affect the given ContactData.
             virtual void updateContact(ContactData& contactData) = 0;
+            // @reset: Enables resetting the internal state on reset of the simulation.
+            virtual void reset() {};
 
         protected:
             friend class core::CollisionManager;

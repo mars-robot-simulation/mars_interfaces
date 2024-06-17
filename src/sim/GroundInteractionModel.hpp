@@ -15,6 +15,8 @@ namespace mars
             virtual void prePhysicsUpdate() = 0;
             virtual void registerUsingContactPlugin(const ContactPluginInterface* const contactPlugin) {}
             virtual void unregisterUsingContactPlugin(const ContactPluginInterface* const contactPlugin) {}
+            // @reset: Enables resetting the internal state on reset of the simulation.
+            virtual void reset() {};
         };
     }
 }

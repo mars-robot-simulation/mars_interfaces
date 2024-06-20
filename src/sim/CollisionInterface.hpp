@@ -50,6 +50,7 @@ namespace mars
             virtual ode_collision::Object* createObject(configmaps::ConfigMap &config, std::shared_ptr<DynamicObject> movalbe=nullptr) = 0;
             virtual void updateTransforms(void) = 0;
             virtual void showDebugObjects(bool show) = 0;
+            virtual void reset() = 0;
         };
 
         class CollisionInterfaceItem

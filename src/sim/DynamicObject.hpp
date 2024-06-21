@@ -45,6 +45,10 @@ namespace mars
         class DynamicObjectItem
         {
         public:
+            DynamicObjectItem(std::shared_ptr<DynamicObject>&& dynamicObject, const std::string& pluginName) :
+                dynamicObject{dynamicObject}, pluginName{pluginName}
+            {}
+
             std::shared_ptr<DynamicObject> dynamicObject;
             std::string pluginName;
         };

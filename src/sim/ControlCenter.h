@@ -90,12 +90,10 @@ namespace mars
             static std::shared_ptr<SensorManagerInterface> sensors;
             static NodeManagerInterface* nodes;
 
-            std::shared_ptr<IDManager> motorIDManager;
             std::shared_ptr<IDManager> jointIDManager;
             std::shared_ptr<IDManager> linkIDManager;
             std::shared_ptr<IDManager> sensorIDManager;
 
-            static std::shared_ptr<IDManager> motorIDManager_;
             static std::shared_ptr<IDManager> jointIDManager_;
             static std::shared_ptr<IDManager> linkIDManager_;
             static std::shared_ptr<IDManager> sensorIDManager_;

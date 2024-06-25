@@ -8,7 +8,7 @@
 #include "sim/LoadCenter.h"
 #include "sim/JointInterface.h"
 #include <mars_utils/mathUtils.h>
-
+using namespace configmaps;
 // should add some error handling for ConfigItem::get...()
 
 #define GET_VALUE(str, val, type)                 \

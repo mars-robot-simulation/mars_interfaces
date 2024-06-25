@@ -8,7 +8,7 @@
 #include "Logging.hpp"
 #include <iostream>
 #include <cstdio>
-
+using namespace configmaps;
 
 #define GET_VALUE(str, val, type)                 \
     if((it = config->find(str)) != config->end()) \

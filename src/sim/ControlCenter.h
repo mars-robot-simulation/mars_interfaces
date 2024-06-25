@@ -92,11 +92,9 @@ namespace mars
 
             std::shared_ptr<IDManager> jointIDManager;
             std::shared_ptr<IDManager> linkIDManager;
-            std::shared_ptr<IDManager> sensorIDManager;
 
             static std::shared_ptr<IDManager> jointIDManager_;
             static std::shared_ptr<IDManager> linkIDManager_;
-            static std::shared_ptr<IDManager> sensorIDManager_;
 
             // deprecated
             // use instead ControlCenter::theDataBroker

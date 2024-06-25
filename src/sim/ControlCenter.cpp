@@ -22,7 +22,6 @@ namespace mars
 
         std::shared_ptr<IDManager> ControlCenter::jointIDManager_ = nullptr;
         std::shared_ptr<IDManager> ControlCenter::linkIDManager_ = nullptr;
-        std::shared_ptr<IDManager> ControlCenter::sensorIDManager_ = nullptr;
 
         LoadCenter* ControlCenter::loadCenter = nullptr;
 

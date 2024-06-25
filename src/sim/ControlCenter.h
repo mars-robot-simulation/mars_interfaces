@@ -90,10 +90,6 @@ namespace mars
             static std::shared_ptr<SensorManagerInterface> sensors;
             static NodeManagerInterface* nodes;
 
-            std::shared_ptr<IDManager> linkIDManager;
-
-            static std::shared_ptr<IDManager> linkIDManager_;
-
             // deprecated
             // use instead ControlCenter::theDataBroker
             data_broker::DataBrokerInterface *dataBroker;

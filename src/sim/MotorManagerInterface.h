@@ -147,6 +147,7 @@ namespace mars
              * \param value The new value.
              */
             virtual void setMotorValue(unsigned long id, sReal value) = 0;
+            virtual void setMotorFFTorque(unsigned long id, sReal value) = 0;
 
             /**
              * \brief Sets the maximum torque of the motor with the given id to the given value.

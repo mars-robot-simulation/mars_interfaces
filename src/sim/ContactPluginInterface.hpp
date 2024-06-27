@@ -55,14 +55,15 @@ namespace mars
 
             ~ContactPluginInterfaceItem() = default;
 
-            ContactPluginInterfaceItem operator=(ContactPluginInterfaceItem&& rhs)
+            ContactPluginInterfaceItem& operator=(ContactPluginInterfaceItem&& rhs)
             {
                 contactPluginInterface = std::move(rhs.contactPluginInterface);
                 pluginName = std::move(rhs.pluginName);
+                return *this;
             }
 
             // deleted
-            ContactPluginInterfaceItem operator=(const ContactPluginInterfaceItem&) = delete;
+            ContactPluginInterfaceItem& operator=(const ContactPluginInterfaceItem&) = delete;
 
             std::shared_ptr<ContactPluginInterface> contactPluginInterface;
             std::string pluginName;

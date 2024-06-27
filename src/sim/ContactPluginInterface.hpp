@@ -45,16 +45,24 @@ namespace mars
         class ContactPluginInterfaceItem
         {
         public:
-            // defaults
             ContactPluginInterfaceItem() = default;
-            ~ContactPluginInterfaceItem() = default;
-            ContactPluginInterfaceItem(const ContactPluginInterfaceItem&) = default;
+            ContactPluginInterfaceItem(std::shared_ptr<ContactPluginInterface>& cpi, const std::string& pn)
+            : contactPluginInterface{cpi}, pluginName{pn} {}
+            ContactPluginInterfaceItem(ContactPluginInterfaceItem&& rhs)
+            : contactPluginInterface{std::move(rhs.contactPluginInterface)}, pluginName{std::move(rhs.pluginName)} {}
             // Copy Constructor required from envire for creation of SpatioTemporal through ItemPtr creation.
+            ContactPluginInterfaceItem(const ContactPluginInterfaceItem&) = default;
+
+            ~ContactPluginInterfaceItem() = default;
+
+            ContactPluginInterfaceItem operator=(ContactPluginInterfaceItem&& rhs)
+            {
+                contactPluginInterface = std::move(rhs.contactPluginInterface);
+                pluginName = std::move(rhs.pluginName);
+            }
 
             // deleted
             ContactPluginInterfaceItem operator=(const ContactPluginInterfaceItem&) = delete;
-            ContactPluginInterfaceItem(ContactPluginInterfaceItem&&) = delete;
-            ContactPluginInterfaceItem operator=(ContactPluginInterfaceItem&&) = delete;
 
             std::shared_ptr<ContactPluginInterface> contactPluginInterface;
             std::string pluginName;

@@ -37,6 +37,8 @@ namespace mars
                                                         const utils::Quaternion &rotation,
                                                         bool move_group) = 0;
             virtual const std::string& getName() const = 0;
+            virtual const utils::Vector& getContactForceVector() const = 0;
+            virtual const sReal& getContactForce() const = 0;
             virtual void addLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;
             virtual bool isLinkedFrame(std::shared_ptr<DynamicObject> linked) = 0;
             virtual std::vector<std::shared_ptr<DynamicObject>> getLinkedFrames(void) = 0;

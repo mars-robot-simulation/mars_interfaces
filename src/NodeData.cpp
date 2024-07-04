@@ -47,7 +47,7 @@ namespace mars
             "capsule",
             "cylinder",
             "plane",
-            "terrain",
+            "heightfield",
             "reference",
             "empty"
         };

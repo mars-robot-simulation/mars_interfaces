@@ -12,6 +12,18 @@ namespace mars
         //mesh structure
         struct snmesh
         {
+            snmesh() :
+                vertices{nullptr},
+                normals{nullptr},
+                color{nullptr},
+                tCoords{nullptr},
+                indices{nullptr},
+                indexcount{0},
+                vertexcount{0}
+            {}
+
+            ~snmesh() = default;
+
             void setZero(bool free_memory = false)
             {
                 if (free_memory)
@@ -19,19 +31,9 @@ namespace mars
                     freeMemory();
                 }
 
-                vertices = nullptr;
-                normals = nullptr;
-                color = nullptr;
-                tCoords = nullptr;
-                indices = nullptr;
-                indexcount = 0;
-                vertexcount = 0;
+                *this = snmesh{};
             }
 
-            snmesh()
-            {
-                setZero();
-            }
 
             void freeMemory()
             {
@@ -39,31 +41,36 @@ namespace mars
                 // if (vertices)
                 // {
                 //     delete[] vertices;
+                //     vertices = nullptr;
                 // }
                 // if (normals)
                 // {
                 //     delete normals;
+                //     normals = nullptr;
                 // }
                 // if (color)
                 // {
                 //     delete color;
+                //     color = nullptr;
                 // }
                 // if (tCoords)
                 // {
                 //     delete tCoords;
+                //     tCoords = nullptr;
                 // }
                 // if (indices)
                 // {
                 //     delete indices;
+                //     indices = nullptr;
                 // }
             }
 
-            mydVector3 *vertices;
-            mydVector3 *normals;
-            utils::Color *color;
-            mydVector2 *tCoords;
+            mydVector3* vertices;
+            mydVector3* normals;
+            utils::Color* color;
+            mydVector2* tCoords;
 
-            int *indices;
+            int* indices;
             int indexcount;
             int vertexcount;
 

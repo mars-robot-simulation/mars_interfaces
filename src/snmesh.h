@@ -38,31 +38,31 @@ namespace mars
             void freeMemory()
             {
                 // TODO: It seems like this memory also may be deallocated from somewhere else without calling setZero resulting in a double delete. This should be cleaned up.
-                // if (vertices)
-                // {
-                //     delete[] vertices;
-                //     vertices = nullptr;
-                // }
-                // if (normals)
-                // {
-                //     delete normals;
-                //     normals = nullptr;
-                // }
-                // if (color)
-                // {
-                //     delete color;
-                //     color = nullptr;
-                // }
-                // if (tCoords)
-                // {
-                //     delete tCoords;
-                //     tCoords = nullptr;
-                // }
-                // if (indices)
-                // {
-                //     delete indices;
-                //     indices = nullptr;
-                // }
+                if (vertices)
+                {
+                    delete[] vertices;
+                    vertices = nullptr;
+                }
+                if (normals)
+                {
+                    delete[] normals;
+                    normals = nullptr;
+                }
+                if (color)
+                {
+                    delete color;
+                    color = nullptr;
+                }
+                if (tCoords)
+                {
+                    delete[] tCoords;
+                    tCoords = nullptr;
+                }
+                if (indices)
+                {
+                    delete[] indices;
+                    indices = nullptr;
+                }
             }
 
             mydVector3* vertices;

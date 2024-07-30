@@ -37,7 +37,6 @@ namespace mars
 
             void freeMemory()
             {
-                // TODO: It seems like this memory also may be deallocated from somewhere else without calling setZero resulting in a double delete. This should be cleaned up.
                 if (vertices)
                 {
                     delete[] vertices;

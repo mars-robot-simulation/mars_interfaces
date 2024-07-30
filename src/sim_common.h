@@ -11,4 +11,3 @@
 #include <mars_utils/Color.h>
 #include "nodeState.h"
 #include "contact_params.h"
-#include "snmesh.h"

@@ -16,7 +16,6 @@ namespace mars
 {
     namespace interfaces
     {
-
         // forward declaration
         class LoadCenter;
         struct terrainStruct;

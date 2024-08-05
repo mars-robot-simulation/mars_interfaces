@@ -60,7 +60,7 @@ namespace mars
             CPP_UNUSED(filenamePrefix);
             CPP_UNUSED(loadCenter);
             ConfigMap::iterator it;
-            unsigned int mapIndex;
+            unsigned int mapIndex{0};
             GET_VALUE("mapIndex", mapIndex, UInt);
 
             name = config->get("name", name);

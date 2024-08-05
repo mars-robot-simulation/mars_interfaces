@@ -31,7 +31,7 @@ namespace mars
             void init(const std::string& name = "", MotorType type = MOTOR_TYPE_UNDEFINED);
 
             bool fromConfigMap(configmaps::ConfigMap *config, std::string filenamePrefix,
-                               LoadCenter *loadCenter = 0);
+                               LoadCenter *loadCenter = nullptr);
             void toConfigMap(configmaps::ConfigMap *config,
                              bool skipFilenamePrefix = false);
             void getFilesToSave(std::vector<std::string> *fileList);

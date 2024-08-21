@@ -111,6 +111,7 @@ namespace mars
              *  returns the calculated simulation time + the start timestamp
              */
             virtual unsigned long getTime() = 0;
+            virtual sReal getVectorCollision(utils::Vector position, utils::Vector ray) = 0;
         };
 
 

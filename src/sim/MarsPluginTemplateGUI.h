@@ -29,7 +29,6 @@ namespace mars
 
                 lib_manager::LibInterface *lib;
                 lib = libManager->getLibrary("mars_core");
-                pluginStruct newplugin;
                 if(lib)
                 {
                     if( (mars = dynamic_cast<SimulatorInterface*>(lib)) )
@@ -67,12 +66,17 @@ namespace mars
 
             ~MarsPluginTemplateGUI()
             {
-                if(mars) libManager->releaseLibrary("mars_core");
+                if(mars)
+                {
+                    mars->removePlugin(newplugin.p_interface);
+                    libManager->releaseLibrary("mars_core");
+                }
                 if(gui) libManager->releaseLibrary("main_gui");
             }
 
         private:
             SimulatorInterface *mars;
+            pluginStruct newplugin;
 
         protected:
             std::string configPath;

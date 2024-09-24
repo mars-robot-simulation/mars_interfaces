@@ -26,7 +26,7 @@ namespace mars
         public:
 
             MarsPluginTemplate(lib_manager::LibManager *theManager, std::string libName) :
-                LibInterface(theManager), PluginInterface(NULL), mars(NULL)
+                LibInterface(theManager), PluginInterface(nullptr), mars(nullptr)
             {
 
                 lib_manager::LibInterface *lib;
@@ -36,11 +36,11 @@ namespace mars
                     if( (mars = dynamic_cast<SimulatorInterface*>(lib)) )
                     {
                         control = mars->getControlCenter();
-                        newplugin.name = libName;
-                        newplugin.p_interface = dynamic_cast<PluginInterface*>(this);
-                        newplugin.p_destroy = 0;
-                        newplugin.timer = newplugin.timer_gui = 0;
-                        newplugin.t_count = newplugin.t_count_gui = 0;
+                        newPlugin.name = libName;
+                        newPlugin.p_interface = dynamic_cast<PluginInterface*>(this);
+                        newPlugin.p_destroy = 0;
+                        newPlugin.timer = newPlugin.timer_gui = 0;
+                        newPlugin.t_count = newPlugin.t_count_gui = 0;
 
                         if(control->cfg)
                         {
@@ -59,7 +59,7 @@ namespace mars
                 // we can get a timing problem if mars want to use the
                 // plugin before the contructor is finished -> so the last part here
                 // is to register the plugin to mars
-                if(mars) mars->addPlugin(newplugin);
+                if(mars) mars->addPlugin(newPlugin);
             }
 
             ~MarsPluginTemplate()

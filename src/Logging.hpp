@@ -1,8 +1,9 @@
 #pragma once
 #include "sim/ControlCenter.h"
 
-#if defined(LOG_FATAL) && defined(CONTROL_CENTER_H)
-    //Everything is fine, the user included us, so we are backward compatible, undefiing the compile-time assertions from ControlCenter.h
+#if defined(LOG_FATAL)
+    //Everything is fine, the user included us, so we are backward compatible, undefining
+    // the compile-time assertions from ControlCenter.h and base_logging
     //This prevents a warning, because controlcenter was included before us. which is fine,
     //but to prevent a redefinition removing the defines first
     #undef LOG_FATAL

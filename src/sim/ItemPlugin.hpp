@@ -1,5 +1,7 @@
 #pragma once
 
+#include <configmaps/ConfigData.h>
+
 #include <lib_manager/LibInterface.hpp>
 #include <lib_manager/LibManager.hpp>
 
@@ -21,6 +23,7 @@ namespace mars
     {
 
         class ItemPlugin : public lib_manager::LibInterface
+
         {
 
         public:
@@ -38,7 +41,8 @@ namespace mars
 
             virtual void initPlugin(std::shared_ptr<envire::core::EnvireGraph> graph,
                                     std::shared_ptr<envire::core::TreeView> tree,
-                                    std::string frame) {};
+                                    std::string frameId,
+                                    configmaps::ConfigMap config) {};
 
             std::string getLibName() {return libName;}
 

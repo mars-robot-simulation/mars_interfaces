@@ -85,7 +85,7 @@ namespace mars
             virtual int checkCollisions(void) = 0;
             virtual bool hasSimFault() const = 0;
             // @getStepSizeS: Returns step size of the physics simulations in seconds.
-            virtual interfaces::sReal getStepSizeS() const;
+            virtual interfaces::sReal getStepSizeS() const = 0;
 
             //graphics
             virtual void finishedDraw(void) = 0;

@@ -84,6 +84,8 @@ namespace mars
             virtual const utils::Vector& getGravity(void) = 0;
             virtual int checkCollisions(void) = 0;
             virtual bool hasSimFault() const = 0;
+            // @getStepSizeS: Returns step size of the physics simulations in seconds.
+            virtual interfaces::sReal getStepSizeS() const;
 
             //graphics
             virtual void finishedDraw(void) = 0;

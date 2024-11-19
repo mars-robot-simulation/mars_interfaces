@@ -31,12 +31,18 @@ namespace mars
             ItemPlugin(lib_manager::LibManager *theManager,
                        std::string libName) : LibInterface(theManager), libName(libName)
             {
-                libManager->acquireLibrary(libName);
+                if(libManager)
+                {
+                    libManager->acquireLibrary(libName);
+                }
             }
 
             virtual ~ItemPlugin()
             {
-                libManager->releaseLibrary(libName);
+                if(libManager)
+                {
+                    libManager->releaseLibrary(libName);
+                }
             }
 
             virtual void initPlugin(std::shared_ptr<envire::core::EnvireGraph> graph,
@@ -44,7 +50,7 @@ namespace mars
                                     std::string frameId,
                                     configmaps::ConfigMap config) {};
 
-            std::string getLibName() {return libName;}
+            const std::string getLibName() const {return libName;}
 
         private:
             std::string libName;
@@ -54,7 +60,7 @@ namespace mars
         {
         public:
             ItemPluginItem() = default;
-            ItemPluginItem(std::shared_ptr<ItemPlugin>&& itemPlugin, const std::string& libName)
+            ItemPluginItem(std::shared_ptr<ItemPlugin>& itemPlugin, const std::string& libName)
             : itemPlugin{itemPlugin}, libName{libName}
             {}
 

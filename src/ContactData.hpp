@@ -40,6 +40,7 @@ namespace mars
             //                  bool exportDefault = false);
 
             std::string frameID;
+            std::string nameObject1, nameObject2;
 
 
             /**

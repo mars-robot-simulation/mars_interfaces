@@ -27,7 +27,7 @@ namespace mars
 
             // @priority: If multiple contact plugins affect the same contact, only the one with the highest priority is applied.
             // TODO: Handling the priority is not implemented in mars::core::CollisionManager yet (2024-06-06).
-            virtual uint32_t priority() const { return 0; }
+            virtual std::vector<int> priorities() const { return std::vector<int>{0}; }
             // @affects: Returns true, iff the contact plugin affects the given ContactData.
             virtual bool affects(const ContactData& contactData) const = 0;
             // @updateContact: Affect the given ContactData.

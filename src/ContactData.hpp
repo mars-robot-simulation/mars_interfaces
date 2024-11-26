@@ -64,6 +64,7 @@ namespace mars
              */
             sReal depth;
 
+            sReal simulationStepSize;
             sReal surfaceDepth;
             sReal surfaceVariance;
             int surfaceType;

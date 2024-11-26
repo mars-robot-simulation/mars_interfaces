@@ -28,7 +28,11 @@ namespace mars
             /**
              * @brief default constructor that takes name, position and orientation arguments
              */
-            explicit ContactData() {}
+            explicit ContactData() {
+                surfaceDepth = 0;
+                surfaceType = 0;
+                surfaceVariance = 1.0;
+            }
 
             //static const char* toString(const NodeType &type);
 
@@ -59,6 +63,10 @@ namespace mars
              * Depth of the contact. \verbatim Default value: 0.0 \endverbatim
              */
             sReal depth;
+
+            sReal surfaceDepth;
+            sReal surfaceVariance;
+            int surfaceType;
 
             /**
              * The contact params define the physical contact properties.

@@ -47,6 +47,7 @@ set(HEADERS
     src/snmesh.h
     src/terrainStruct.h
     src/utils.h
+    src/EnvireUtils.hpp
     src/sim/DynamicObject.hpp
     src/sim/ItemPlugin.hpp
     src/exceptions/SceneParseException.h

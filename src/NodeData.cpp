@@ -192,6 +192,8 @@ namespace mars
                                                 terrain->targetHeight));
                 GET_VALUE("t_tex_scale_x", terrain->texScaleX, Double);
                 GET_VALUE("t_tex_scale_y", terrain->texScaleY, Double);
+                GET_VALUE("width", terrain->width, Int);
+                GET_VALUE("height", terrain->height, Int);
             }
 
             GET_OBJECT("visualposition", visual_offset_pos, vector);

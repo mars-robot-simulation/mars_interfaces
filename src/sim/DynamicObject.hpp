@@ -28,6 +28,7 @@ namespace mars
             virtual void setLinearVelocity(const utils::Vector &vel) = 0;
             virtual void getAngularVelocity(utils::Vector *vel) const = 0;
             virtual void setAngularVelocity(const utils::Vector &vel) = 0;
+            virtual void getLinearAcceleration(utils::Vector *vel) const = 0;
             virtual void getForce(utils::Vector *f) const = 0;
             virtual void getTorque(utils::Vector *t) const = 0;
             virtual void addForce(const utils::Vector &f, const utils::Vector &p) = 0;

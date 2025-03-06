@@ -28,7 +28,7 @@ namespace mars
             /**
              * @brief default constructor that takes name, position and orientation arguments
              */
-            explicit ContactData() {
+            ContactData() {
                 surfaceDepth = 0;
                 surfaceType = 0;
                 surfaceVariance = 1.0;

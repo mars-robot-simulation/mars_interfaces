@@ -114,6 +114,7 @@ namespace mars
              */
             virtual unsigned long getTime() = 0;
             virtual sReal getVectorCollision(utils::Vector position, utils::Vector ray) = 0;
+            virtual void rotate( std::string origin, double angle, utils::Vector axis) = 0;
         };
 
 

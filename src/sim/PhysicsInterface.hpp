@@ -58,6 +58,7 @@ namespace mars
             // todo: replace ODEObject by interface
             virtual void createObject(configmaps::ConfigMap &config) = 0;
             virtual std::shared_ptr<JointInterface> createJoint(data_broker::DataBrokerInterface *dataBroker, configmaps::ConfigMap &config) = 0;
+            virtual void destroyJoint(const std::string &jointName) = 0;
             virtual std::shared_ptr<JointInterface> getJoint(std::string name) = 0;
 
             virtual void exportWorld() = 0;

@@ -54,6 +54,9 @@ namespace mars
             virtual void addLight(LightData light) = 0;
             virtual void connectNodes(unsigned long id1, unsigned long id2) = 0;
             virtual void disconnectNodes(unsigned long id1, unsigned long id2) = 0;
+            virtual void connectDynamicObjects(const std::string &name1, const std::string &name2) = 0;
+            virtual void disconnectDynamicObjects(const std::string &name1, const std::string &name2) = 0;
+
             virtual void rescaleEnvironment(sReal x, sReal y, sReal z) = 0;
 
             // scenes
@@ -115,6 +118,7 @@ namespace mars
             virtual unsigned long getTime() = 0;
             virtual sReal getVectorCollision(utils::Vector position, utils::Vector ray) = 0;
             virtual void rotate( std::string origin, double angle, utils::Vector axis) = 0;
+            virtual void translate( std::string origin, utils::Vector v) = 0;
         };
 
 

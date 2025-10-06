@@ -230,6 +230,7 @@ namespace mars
             virtual void edit(const std::string &key, const std::string &value) = 0;
             virtual void edit(unsigned long widgetID, const std::string &key,
                               const std::string &value) = 0;
+            virtual void brushTest(mars::utils::Vector start, mars::utils::Vector end) = 0;
         }; // end of class GraphicsManagerInterface
 
     } // end of namespace interfaces

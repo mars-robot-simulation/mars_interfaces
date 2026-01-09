@@ -96,6 +96,8 @@ install(FILES ${HEADERS} DESTINATION include/${PROJECT_NAME})
 
 FILE(GLOB files "src/graphics/*.h")
 install(FILES ${files} DESTINATION include/${PROJECT_NAME}/graphics)
+FILE(GLOB files "src/graphics/*.hpp")
+install(FILES ${files} DESTINATION include/${PROJECT_NAME}/graphics)
 FILE(GLOB files "src/sim/*.h")
 install(FILES ${files} DESTINATION include/${PROJECT_NAME}/sim)
 FILE(GLOB files "src/sim/*.hpp")

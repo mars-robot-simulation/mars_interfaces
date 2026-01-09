@@ -330,6 +330,7 @@ namespace mars
             SET_OBJECT("pivot", pivot, vector, true);
             SET_OBJECT("rotation", rot, quaternion, true);
             SET_OBJECT("extend", ext, vector, true);
+            SET_OBJECT("extent", ext, vector, true);
             SET_VALUE("relativeid", relative_id, writeDefaults);
 
             if(terrain)

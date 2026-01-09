@@ -388,8 +388,7 @@ namespace mars
             SET_VALUE("shadow_id", shadow_id, writeDefaults);
             SET_VALUE("shadowcaster", isShadowCaster, writeDefaults);
             SET_VALUE("shadowreceiver", isShadowReceiver, writeDefaults);
-            SET_VALUE("material", material.name, writeDefaults);
-
+            SET_VALUE("material_name", material.name, writeDefaults);
         }
 
         void NodeData::getFilesToSave(std::vector<std::string> *fileList)

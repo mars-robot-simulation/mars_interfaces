@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <limits>
+#include <cassert>
 
 
 namespace mars

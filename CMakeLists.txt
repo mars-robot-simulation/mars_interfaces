@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 project(mars_interfaces VERSION 2.0.0 DESCRIPTION "This library is the base library for the MARS prject and includes the general defines, structs and classes.")
 
 

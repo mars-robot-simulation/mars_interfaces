@@ -208,6 +208,8 @@ namespace mars
             // be carful with this method, only add a valid pointer osg::Node*
             virtual void addOSGNode(void* node) = 0;
             virtual void removeOSGNode(void* node) = 0;
+            virtual void addGraphicsNode(void* node, int windowMask) {};
+            virtual void removeGraphicsNode(void* node) {};
             virtual unsigned long addHUDOSGNode(void* node) = 0;
             virtual bool isInitialized() const = 0;
             virtual std::vector<interfaces::MaterialData> getMaterialList() const = 0;
@@ -232,6 +234,23 @@ namespace mars
                               const std::string &value) = 0;
             virtual void brushTest(mars::utils::Vector start, mars::utils::Vector end) = 0;
             virtual void brushTestThreaded(std::vector<utils::Vector> start_, std::vector<utils::Vector> end) = 0;
+
+            virtual void getTextureSize(std::string materialName,
+                                        std::string textureName,
+                                        int *w, int *h) {};
+            virtual void getTextureData(std::string materialName,
+                                        std::string textureName,
+                                        char *buffer,
+                                        int w, int h) {};
+            virtual void captureTextureData(std::string materialName,
+                                            std::string textureName,
+                                            char *buffer,
+                                            int w, int h) {};
+            virtual void setTextureData(std::string materialName,
+                                        std::string textureName,
+                                        char *buffer,
+                                        int w, int h) {};
+
         }; // end of class GraphicsManagerInterface
 
     } // end of namespace interfaces

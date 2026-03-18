@@ -6,6 +6,7 @@
 #include "GuiEventInterface.h"
 #include "GraphicsEventClient.h"
 #include "draw_structs.h"
+#include "ManipulatorClient.hpp"
 #include "../NodeData.h"
 #include "../GraphicData.h"
 #include "../LightData.h"
@@ -250,6 +251,16 @@ namespace mars
                                         std::string textureName,
                                         char *buffer,
                                         int w, int h) {};
+            virtual bool createManipulator(std::string name, ManipulatorClient *mi,
+                                           int windowMask = std::numeric_limits<int>::max()) {}
+            virtual void setManipulatorPose(std::string name,
+                                            const utils::Vector &v,
+                                            const utils::Quaternion &q) {};
+            virtual void setManipulatorScale(std::string name,
+                                             const utils::Vector &s) {};
+            virtual void dirty() {};
+            virtual bool getIntersection(unsigned long windowID, const utils::Vector &p,
+                                         const utils::Vector &dir, utils::Vector &pos) {}
 
         }; // end of class GraphicsManagerInterface
 

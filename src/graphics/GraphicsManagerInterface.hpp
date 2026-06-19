@@ -156,6 +156,8 @@ namespace mars
                                             double text_color[4]) = 0;
             virtual void setHUDElementLines(unsigned long id, std::vector<double> *v,
                                             double color[4]) = 0;
+            virtual void* getEngineWindow(unsigned long id) {};
+            virtual void* getEngineViewer() {};
             virtual void* getQTWidget(unsigned long id) const = 0;
             virtual void showQTWidget(unsigned long id) = 0;
             virtual void addGuiEventHandler(GuiEventInterface *_guiEventHandler) = 0;

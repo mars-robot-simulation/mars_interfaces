@@ -51,10 +51,17 @@ namespace mars
             return sJointTypeStrings[type];
         }
     
-        JointType getJointType(const std::string& text)
+        JointType getJointType(const std::string& text_)
         {
+            std::string text = text_;
             assert(sizeof(sJointTypeStrings) / sizeof(char*) == NUMBER_OF_JOINT_TYPES);
-      
+
+            // handle some spacial cases due to renaming and backwards comaptibility
+            if(text == "prismatic")
+            {
+                text = "slider";
+            }
+
             //keep this in sync with the correct ids (from mars_core/src/MARSDefs.h)
             for (int i = 0; i < NUMBER_OF_JOINT_TYPES; ++i)
             {
@@ -76,7 +83,7 @@ namespace mars
                     return (JointType)numberFromString;
                 }
             }
-      
+
             //string not found and conversion to integer not successful.
             std::cerr << __FILE__": Could not get joint type from string \""
                       << text << "\"." << std::endl;

@@ -21,5 +21,15 @@ namespace mars
             virtual void scaleZ(double value) = 0;
             virtual bool keyPress(char c) = 0;
         };
+
+        class UVPointerClient
+        {
+        public:
+            UVPointerClient() {}
+            virtual ~UVPointerClient() {}
+            virtual bool pointerEvent(double s, double t) = 0;
+            virtual bool pointerClickEvent(double s, double t) = 0;
+            virtual bool pointerReleaseEvent() = 0;
+        };
     }
 }

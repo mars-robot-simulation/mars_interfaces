@@ -157,6 +157,8 @@ namespace mars
             virtual void setHUDElementLines(unsigned long id, std::vector<double> *v,
                                             double color[4]) = 0;
             virtual void* getEngineWindow(unsigned long id) {};
+            virtual void* getEngineDevice(unsigned long id) {};
+            virtual void* getEngineRenderPass(unsigned long id) {};
             virtual void* getEngineViewer() {};
             virtual void* getQTWidget(unsigned long id) const = 0;
             virtual void showQTWidget(unsigned long id) = 0;
@@ -263,6 +265,7 @@ namespace mars
             virtual void dirty() {};
             virtual bool getIntersection(unsigned long windowID, const utils::Vector &p,
                                          const utils::Vector &dir, utils::Vector &pos) {}
+            virtual void addUVPointerClient(const std::string &node, UVPointerClient *cl) {}
 
         }; // end of class GraphicsManagerInterface
 

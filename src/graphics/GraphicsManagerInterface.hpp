@@ -7,6 +7,7 @@
 #include "GraphicsEventClient.h"
 #include "draw_structs.h"
 #include "ManipulatorClient.hpp"
+#include "XRClient.hpp"
 #include "../NodeData.h"
 #include "../GraphicData.h"
 #include "../LightData.h"
@@ -267,6 +268,8 @@ namespace mars
                                          const utils::Vector &dir, utils::Vector &pos) {}
             virtual void addUVPointerClient(const std::string &node, UVPointerClient *cl) {}
 
+            virtual void addXRClient(XRClient *c) {(void)c;}
+            virtual void removeXRClient(XRClient *c) {(void)c;}
         }; // end of class GraphicsManagerInterface
 
     } // end of namespace interfaces

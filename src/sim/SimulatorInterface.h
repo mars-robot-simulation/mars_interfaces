@@ -119,6 +119,9 @@ namespace mars
             virtual sReal getVectorCollision(utils::Vector position, utils::Vector ray) = 0;
             virtual void rotate( std::string origin, double angle, utils::Vector axis) = 0;
             virtual void translate( std::string origin, utils::Vector v) = 0;
+            virtual void setPose(const std::string &frameId,
+                                 const utils::Vector &v,
+                                 const utils::Quaternion &q) = 0;
         };
 
 

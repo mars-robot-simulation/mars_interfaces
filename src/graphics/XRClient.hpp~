@@ -1,0 +1,27 @@
+#pragma once
+
+#include <mars_utils/Vector.h>
+#include <mars_utils/Quaternion.h>
+
+namespace mars
+{
+    namespace interfaces
+    {
+        class XRClient
+        {
+        public:
+            XRClient() {}
+            virtual ~XRClient() {}
+
+            virtual void select(const utils::Vector &s) {} // done with right a
+            virtual void grabStart(const utils::Vector &s) {} // done with right trigger
+            virtual void grabMove(const utils::Vector &s) {} // while right trigger is pressed
+            virtual void toggleMode(const utils::Vector &s) {} // done wiht left x
+            virtual void cancel() {} // done with left y
+            virtual void rightHandPoseUpdate(const utils::Vector &s,
+                                             const utils::Quaternion &q) {}
+            virtual void leftHandPoseUpdate(const utils::Vector &s,
+                                            const utils::Quaternion &q) {}
+        };
+    }
+}

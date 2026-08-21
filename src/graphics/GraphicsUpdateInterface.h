@@ -15,6 +15,7 @@ namespace mars
             GraphicsUpdateInterface(void) {}
             virtual ~GraphicsUpdateInterface(void) {}
             virtual void preGraphicsUpdate(void) {}
+            virtual void preGraphicsDrawUpdate(void) {}
             virtual void postGraphicsUpdate(void) {}
         }; // end of class GraphicsUpdateInterface
 

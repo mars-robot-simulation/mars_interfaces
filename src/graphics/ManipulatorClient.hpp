@@ -1,5 +1,7 @@
 #pragma once
 
+#include <mars_utils/Vector.h>
+
 namespace mars
 {
     namespace interfaces
@@ -30,6 +32,10 @@ namespace mars
             virtual bool pointerEvent(double s, double t) = 0;
             virtual bool pointerClickEvent(double s, double t) = 0;
             virtual bool pointerReleaseEvent() = 0;
+            virtual bool pointerRayEvent(utils::Vector start,
+                                         utils::Vector end) = 0;
+            virtual bool pointerRayClickEvent(utils::Vector start,
+                                              utils::Vector end) = 0;
         };
     }
 }
